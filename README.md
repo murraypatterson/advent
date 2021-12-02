@@ -1,2 +1,2 @@
 # advent
-for advent of code
+for advent of code (https://adventofcode.com)
