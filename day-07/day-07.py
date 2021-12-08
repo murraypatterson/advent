@@ -1,16 +1,12 @@
 
-def cost(x, ps, part = 1) :
-
-    if part == 2 :
-        return sum(sum(range(abs(x-p)+1)) for p in ps)
-
-    return sum(abs(x-p) for p in ps)
-
 def run_part(part) :
 
     cost_of = {}
     for x in range(a,b+1) :
-        cost_of[x] = cost(x,ps,part)
+
+        cost_of[x] = sum(abs(x-p) for p in ps)
+        if part == 2 :
+            cost_of[x] = sum(sum(range(abs(x-p)+1)) for p in ps)
 
         m = min(cost_of.values())
 
