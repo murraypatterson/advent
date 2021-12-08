@@ -1,9 +1,4 @@
 
-def abs(x) :
-    if x < 0 :
-        return -x
-    return x
-
 def cost(x, ps, part = 1) :
 
     if part == 2 :
