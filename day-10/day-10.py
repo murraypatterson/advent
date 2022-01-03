@@ -1,14 +1,14 @@
 
 import sys
 
-def score(s) :
+j = dict((y,x+1) for x,y in enumerate('([{<'))
 
-    d = { '(':1, '[':2, '{':3, '<':4 }
+def score(s) :
 
     t = 0
     while s :
         t *= 5
-        t += d[s.pop()]
+        t += j[s.pop()]
 
     return t
 
