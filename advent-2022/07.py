@@ -3,12 +3,10 @@ import sys
 d = {}
 
 def f(s,b) :
-    print('\t'+s)
     c = 0
 
     while True :
         a = b.readline().strip()
-        print(a)
 
         if not a :
             return c
@@ -23,7 +21,8 @@ def f(s,b) :
                 return c
 
             else :
-                d[a] = f(a,b)
+                a = s + '/' + a
+                d[a] += f(a,b)
                 c += d[a]
 
             continue
@@ -32,6 +31,7 @@ def f(s,b) :
         x, y = a.split()
 
         if x == 'dir' :
+            y = s + '/' + y
             d[y] = 0
 
         else :
@@ -46,10 +46,18 @@ d['/'] = f('/',b) # start it off
 b.close()
 
 a = 0
-for x in  d :
+for x in d :
     if d[x] <= 100000 :
         a += d[x]
 
-print('07a:', a)
+b = 0
+m = max(0, d['/'] - 40000000)
+d = dict(sorted(d.items(), key = lambda item : item[1]))
+for x in d :
 
-print(d)
+    if d[x] >= m :
+        b = d[x]
+        break
+
+print('07a:', a)
+print('07b:', b)
